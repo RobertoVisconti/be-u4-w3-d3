@@ -221,6 +221,7 @@ public class Application {
         } else {
             System.out.println("Partecipazione non trovata. Controllare l'id immesso");
         }
+        
 
     }
 }

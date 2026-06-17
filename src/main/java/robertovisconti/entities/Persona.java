@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import robertovisconti.enums.TypeSex;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -30,6 +32,8 @@ public class Persona {
     @Column(name = "sesso", nullable = false)
     @Enumerated(EnumType.STRING)
     private TypeSex sesso;
+    @OneToMany(mappedBy = "persona")
+    private List<Partecipazione> listaPartecipazioni = new ArrayList<>();
 
     public Persona() {
     }
