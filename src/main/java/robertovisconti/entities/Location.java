@@ -28,6 +28,18 @@ public class Location {
         this.nome = nome;
     }
 
+    public UUID getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCitta() {
+        return citta;
+    }
+
     @Override
     public String toString() {
         return "Location{" +

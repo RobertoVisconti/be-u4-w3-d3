@@ -29,7 +29,7 @@ public class PartecipazioneDAO {
     }
 
 
-    public Partecipazione findByIdPersona(String id) {
+    public Partecipazione findByIdPartecipazione(String id) {
         Partecipazione fromDB = this.entityManager.find(Partecipazione.class, UUID.fromString(id)); // se non troverà nulla mi risulterà null quindi creo un if per gestirlo
         if (fromDB == null) throw new NotFoundByIdException(id);
         return fromDB;

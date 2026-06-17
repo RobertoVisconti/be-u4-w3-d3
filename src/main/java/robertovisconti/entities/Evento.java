@@ -57,6 +57,10 @@ public class Evento {
     // GET & SETTER
 
 
+    public Location getLocation() {
+        return location;
+    }
+
     public String getTitolo() {
         return titolo;
     }

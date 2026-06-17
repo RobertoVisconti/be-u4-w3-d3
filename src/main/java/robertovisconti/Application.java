@@ -173,7 +173,7 @@ public class Application {
         Evento ev4DB = null;
         Evento ev5DB = null;
         Evento ev3DB = null;
-        
+
         try {
             ev1DB = eventsDAO.findById("f38561e5-177b-4feb-9684-d04667d2fe03");
             ev2DB = eventsDAO.findById("60df0beb-edcd-4134-ad14-de394f114468");
@@ -203,6 +203,24 @@ public class Application {
 //        partecipazioneDAO.savePartecipazione(pa4);
 //        partecipazioneDAO.savePartecipazione(pa5);
 
+
+        // TEST
+        System.out.println("******** test relazioni ********");
+        Partecipazione testRel = partecipazioneDAO.findByIdPartecipazione("41f04bbc-03db-4847-8b13-f8e59ffc7e3a");
+
+        if (testRel != null) {
+            Persona p = testRel.getPersona();
+            System.out.println("L'utente: " + p.getNome() + " " + p.getCognome());
+
+            Evento ev = testRel.getEvento();
+            System.out.println("Sta partecipando all'evento: " + ev.getTitolo());
+            System.out.println("Stato della prenotazione: " + testRel.getStato());
+
+            Location loc = ev.getLocation();
+            System.out.println("L'evento si terrà a: " + loc.getNome() + " nella città di " + loc.getCitta());
+        } else {
+            System.out.println("Partecipazione non trovata. Controllare l'id immesso");
+        }
 
     }
 }
