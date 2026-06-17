@@ -14,6 +14,7 @@ import robertovisconti.entities.Persona;
 import robertovisconti.enums.TypeEvents;
 import robertovisconti.enums.TypePartecipation;
 import robertovisconti.enums.TypeSex;
+import robertovisconti.exceptions.NotFoundByIdException;
 
 import java.time.LocalDate;
 
@@ -45,12 +46,21 @@ public class Application {
 //        locationDAO.saveLocation(locRoma);
 //        locationDAO.saveLocation(locMilano);
 
+        Location locNapoliDB = null;
+        Location locLuccaDB = null;
+        Location locSalernoDB = null;
+        Location locMilanoDB = null;
+        Location locRomaDB = null;
 
-        Location locNapoliDB = locationDAO.findByIdLocation("4215f2b1-8228-4514-b659-61607463a00f");
-        Location locLuccaDB = locationDAO.findByIdLocation("b4756e14-4d35-42dd-840d-88ecf0258c4c");
-        Location locSalernoDB = locationDAO.findByIdLocation("b6746828-931e-40e0-974b-2617802364da");
-        Location locRomaDB = locationDAO.findByIdLocation("23494965-5d59-4bc9-8bc3-83575f6dd1bd");
-        Location locMilanoDB = locationDAO.findByIdLocation("e1e1d42b-9bd6-4e2b-bcb0-02e1c940c1f5");
+        try {
+            locNapoliDB = locationDAO.findByIdLocation("4215f2b1-8228-4514-b659-61607463a00f");
+            locLuccaDB = locationDAO.findByIdLocation("b4756e14-4d35-42dd-840d-88ecf0258c4c");
+            locSalernoDB = locationDAO.findByIdLocation("b6746828-931e-40e0-974b-2617802364da");
+            locRomaDB = locationDAO.findByIdLocation("23494965-5d59-4bc9-8bc3-83575f6dd1bd");
+            locMilanoDB = locationDAO.findByIdLocation("e1e1d42b-9bd6-4e2b-bcb0-02e1c940c1f5");
+        } catch (NotFoundByIdException ex) {
+            System.out.println(ex.getMessage());
+        }
 
 
         Evento ev1 = new Evento(
@@ -153,17 +163,32 @@ public class Application {
 //        personaDAO.savePersona(p5);
 
 
-        Evento ev1DB = eventsDAO.findById("f38561e5-177b-4feb-9684-d04667d2fe03");
-        Evento ev2DB = eventsDAO.findById("60df0beb-edcd-4134-ad14-de394f114468");
-        Evento ev3DB = eventsDAO.findById("d77a15ec-1007-4e71-ab0b-109660ba3e41");
-        Evento ev4DB = eventsDAO.findById("8061f902-7b99-4731-b9c2-5df56e2ff97d");
-        Evento ev5DB = eventsDAO.findById("836d68a3-c5ac-4b63-8e40-698ce3621261");
+        Persona p1DB = null;
+        Persona p2DB = null;
+        Persona p3DB = null;
+        Persona p4DB = null;
+        Persona p5DB = null;
+        Evento ev2DB = null;
+        Evento ev1DB = null;
+        Evento ev4DB = null;
+        Evento ev5DB = null;
+        Evento ev3DB = null;
+        
+        try {
+            ev1DB = eventsDAO.findById("f38561e5-177b-4feb-9684-d04667d2fe03");
+            ev2DB = eventsDAO.findById("60df0beb-edcd-4134-ad14-de394f114468");
+            ev3DB = eventsDAO.findById("d77a15ec-1007-4e71-ab0b-109660ba3e41");
+            ev4DB = eventsDAO.findById("8061f902-7b99-4731-b9c2-5df56e2ff97d");
+            ev5DB = eventsDAO.findById("836d68a3-c5ac-4b63-8e40-698ce3621261");
 
-        Persona p1DB = personaDAO.findByIdPersona("b402960c-4952-461c-bc89-56621addb9c0");
-        Persona p2DB = personaDAO.findByIdPersona("edb110da-701d-4953-811f-0d9ecf0673ee");
-        Persona p3DB = personaDAO.findByIdPersona("9086a075-a212-41ac-a946-ef38e96b6c78");
-        Persona p4DB = personaDAO.findByIdPersona("d94cdbcb-b336-49f3-b0ea-b2ec15430225");
-        Persona p5DB = personaDAO.findByIdPersona("84bf00a1-436f-4e49-a664-bb4a8729796b");
+            p1DB = personaDAO.findByIdPersona("b402960c-4952-461c-bc89-56621addb9c0");
+            p2DB = personaDAO.findByIdPersona("edb110da-701d-4953-811f-0d9ecf0673ee");
+            p3DB = personaDAO.findByIdPersona("9086a075-a212-41ac-a946-ef38e96b6c78");
+            p4DB = personaDAO.findByIdPersona("d94cdbcb-b336-49f3-b0ea-b2ec15430225");
+            p5DB = personaDAO.findByIdPersona("84bf00a1-436f-4e49-a664-bb4a8729796b");
+        } catch (NotFoundByIdException ex) {
+            System.out.println(ex.getMessage());
+        }
 
 
         Partecipazione pa1 = new Partecipazione(p1DB, ev2DB, TypePartecipation.CONFERMATA);
