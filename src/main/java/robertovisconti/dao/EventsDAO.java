@@ -5,6 +5,8 @@ import jakarta.persistence.EntityTransaction;
 import robertovisconti.entities.Evento;
 import robertovisconti.exceptions.NotFoundByIdException;
 
+import java.util.UUID;
+
 public class EventsDAO {
     // DAO stà per Data Access Object e ci serve per fornire dei metodi semplici da usare nel main nascondendo la complessità delle righe di codice
 
@@ -30,14 +32,14 @@ public class EventsDAO {
     }
 
 
-    public Evento findById(long id) {
-        Evento fromDB = this.entityManager.find(Evento.class, id); // se non troverà nulla mi risulterà null quindi creo un if per gestirlo
+    public Evento findById(String id) {
+        Evento fromDB = this.entityManager.find(Evento.class, UUID.fromString(id)); // se non troverà nulla mi risulterà null quindi creo un if per gestirlo
         if (fromDB == null) throw new NotFoundByIdException(id);
         return fromDB;
     }
 
 
-    public void deleteById(long id) {
+    public void deleteById(String id) {
         Evento fromDB = this.findById(id); // gli passo la funzione custom di ricerca id creata in prcedenza
         // ricreiamo la transazion di prima per poter gestire l oggetto del DB
         EntityTransaction transaction = this.entityManager.getTransaction();
@@ -47,7 +49,7 @@ public class EventsDAO {
         System.out.println("L'evento " + fromDB + " è stato rimosso con successo.");
     }
 
-    public void updateEvent(long id, Evento update) {
+    public void updateEvent(String id, Evento update) {
         Evento trovato = this.findById(id); // gli passo la funzione custom di ricerca id creata in prcedenza
         EntityTransaction transaction = this.entityManager.getTransaction();// ricreiamo la transazion di prima per poter gestire l oggetto del DB
         transaction.begin(); // qui la lanciamo

@@ -1,7 +1,7 @@
 package robertovisconti.exceptions;
 
 public class NotFoundByIdException extends RuntimeException {
-    public NotFoundByIdException(Long id) {
+    public NotFoundByIdException(String id) {
         super("Il record con id " + id + " non è stato trovato.");
     }
 }

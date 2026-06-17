@@ -4,7 +4,9 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import robertovisconti.dao.EventsDAO;
+import robertovisconti.dao.LocationDAO;
 import robertovisconti.entities.Evento;
+import robertovisconti.entities.Location;
 import robertovisconti.enums.TypeEvents;
 
 import java.time.LocalDate;
@@ -17,7 +19,21 @@ public class Application {
         // andrà creata una class in questo caso : <class>robertovisconti.entities.Evento</class> per poter dire ad hibernate dove andare a cercare le classi da mappare
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        EventsDAO eventsDAO = new EventsDAO(entityManager); // per poter passare al dao l'entity manager così anche di accedere alle sue classi sul main
+        EventsDAO eventsDAO = new EventsDAO(entityManager);// per poter passare al dao l'entity manager così anche di accedere alle sue classi sul main
+        LocationDAO locationDAO = new LocationDAO(entityManager);
+
+
+        Location locNapoli = new Location("Napoli", "Mostra D'oltremare");
+        Location locLucca = new Location("Lucca", "Centro Storico Lucca");
+        Location locSalerno = new Location("Salerno", "Parco dell'Irno");
+        Location locRoma = new Location("Roma", "Fiera di Roma");
+        Location locMilano = new Location("Milano", "Fiera Milano Rho");
+
+//        locationDAO.saveLocation(locNapoli);
+//        locationDAO.saveLocation(locLucca);
+//        locationDAO.saveLocation(locSalerno);
+//        locationDAO.saveLocation(locRoma);
+//        locationDAO.saveLocation(locMilano);
 
 
         Evento ev1 = new Evento(
@@ -25,14 +41,17 @@ public class Application {
                 LocalDate.of(2026, 5, 1),
                 "Fiera Internazionale del fumetto e sessione speciale pomeridiana dedicata alle finali delle gare Cosplay e ospiti internazionali",
                 TypeEvents.PUBBLICO,
-                30000);
+                30000,
+                locNapoli
+        );
 
         Evento ev2 = new Evento(
                 "Lucca Comics and Games",
                 LocalDate.of(2026, 10, 28),
                 "La fiera del fumetto, animazione, giochi e fantasy più grande d'Europa",
                 TypeEvents.PUBBLICO,
-                80000
+                80000,
+                locLucca
         );
 
         Evento ev3 = new Evento(
@@ -40,7 +59,8 @@ public class Application {
                 LocalDate.of(2026, 9, 4),
                 "Fiera del fumetto, dell'animazione e del fantasy nel cuore di Salerno",
                 TypeEvents.PUBBLICO,
-                15000
+                15000,
+                locSalerno
         );
 
         Evento ev4 = new Evento(
@@ -48,7 +68,8 @@ public class Application {
                 LocalDate.of(2026, 11, 20),
                 "Il più importante evento italiano dedicato interamente al gaming e agli esports",
                 TypeEvents.PUBBLICO,
-                50000
+                50000,
+                locMilano
         );
 
         Evento ev5 = new Evento(
@@ -56,7 +77,8 @@ public class Application {
                 LocalDate.of(2026, 10, 1),
                 "Grande rassegna internazionale sul fumetto, animazione e games alla Fiera di Roma",
                 TypeEvents.PUBBLICO,
-                40000
+                40000,
+                locRoma
         );
 
 

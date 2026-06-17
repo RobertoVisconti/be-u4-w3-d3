@@ -45,12 +45,13 @@ public class Evento {
 
 
     // Costruttore classico
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, TypeEvents tipoEvento, Integer numeroMassimoPartecipanti) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, TypeEvents tipoEvento, Integer numeroMassimoPartecipanti, Location location) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.location = location;
     }
 
     // GET & SETTER
