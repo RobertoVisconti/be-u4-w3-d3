@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import robertovisconti.enums.TypeEvents;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 
 @Entity // annotazione per mappare questa classe ed una tabella del DB.
@@ -12,13 +13,10 @@ import java.time.LocalDate;
 public class Evento {
     @Id // annotazione obbligatoria, serve per allocare questo campo come chiave PRIMARIA
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // annotazione opzionale, serve per far generare automaticamente l'id a postgres, e IDENTITY  per rendere quel campo long un serial
-
-
+    @GeneratedValue
     //vado ora a creare le colonne che poi popolerrano la tabella events
     @Column(name = "id")
-    private long id;
+    private UUID id;
 
     @Column(name = "titolo", nullable = false, length = 30)
     private String titolo;
@@ -35,6 +33,11 @@ public class Evento {
 
     @Column(name = "numero_massimo_partecipanti", nullable = false)
     private Integer numeroMassimoPartecipanti;
+
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
 
     // Costruttore vuoto obbligatorio per Hibernate, che gli serve per Instanziare, leggere i dati e popolare il DB
     public Evento() {
