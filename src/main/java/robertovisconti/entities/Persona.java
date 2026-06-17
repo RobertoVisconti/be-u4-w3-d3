@@ -21,7 +21,7 @@ public class Persona {
     @Column(name = "cognome", nullable = false, length = 30)
     private String cognome;
 
-    @Column(name = "email", nullable = false, length = 15)
+    @Column(name = "email", nullable = false, length = 30)
     private String email;
 
     @Column(name = "data_di_nascita", nullable = false)

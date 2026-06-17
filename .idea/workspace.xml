@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54404b7c-5024-412e-b188-2445dbc7a023" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/dao/LocationDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/dao/PartecipazioneDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/dao/PersonaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/robertovisconti/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/robertovisconti/dao/EventsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/dao/EventsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/robertovisconti/entities/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/entities/Evento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/robertovisconti/exceptions/NotFoundByIdException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/exceptions/NotFoundByIdException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/robertovisconti/entities/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/robertovisconti/entities/Persona.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
